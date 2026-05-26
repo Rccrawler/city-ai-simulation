@@ -1,0 +1,13 @@
+apuntes.md
+models/
+binares/
+__pycache__/
+*.pyc
+*.class
+.env
+binares/
+servidor/
+.mejoras.txt
+.arquitectura.txt
+.pront servidor.txt
+.requisitos.txt
