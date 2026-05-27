@@ -26,7 +26,7 @@ The Java client sends the current context (time of day, character bio, recent ev
 
 Detailed documentation can be found in the `docs/` folder:
 - [Architecture & Lore](docs/ARCHITECTURE.md)
-- [Future Improvements](docs/mejoras.txt)
+- [Future Improvements & Roadmap](docs/IMPROVEMENTS.md)
 
 ## 🚀 Getting Started
 
