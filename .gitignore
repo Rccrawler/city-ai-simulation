@@ -1,10 +1,8 @@
 apuntes.md
 models/*
 !models/README.md
-binares/
 __pycache__/
 *.pyc
 *.class
 .env
-binares/
 servidor/
