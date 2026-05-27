@@ -1,5 +1,6 @@
 apuntes.md
-models/
+models/*
+!models/README.md
 binares/
 __pycache__/
 *.pyc
@@ -7,7 +8,3 @@ __pycache__/
 .env
 binares/
 servidor/
-.mejoras.txt
-.arquitectura.txt
-.pront servidor.txt
-.requisitos.txt

@@ -1,0 +1,158 @@
+Java (cliente)
+   ↓ socket TCP
+Python (servidor IA)
+   ↓
+Qwen GGUF cargado en RAM/GPU
+
+
+Java → manda prompt completo
+Python → añade instrucciones fijas
+Python → genera respuesta
+Python → devuelve solo texto
+Fin (no guarda nada) el modelo
+el java si
+
+a la ia se le pasara los json necesarios y las decisiones:
+RESRES= matarse, dormir, levantarse de la cama, que le de un infarto
+y el contesto: el json con las ultimas haciones y jsno datos con la hubicacion
+y la ia debolbera la respuesta con mas datos utiles del personaje: RESRES=opcion, RESTIME=Xm, RESVOL=XdB, LLME3:
+
+que es cada uno lo necesario para que el programa funcione
+RESRES=           opcion elegida segun la respuesta
+RESTIME=Xm        tienpo que el personaje tardar en hacer la acion en minutos ojo puede escribir ceros delante
+RESVOL=XdB        volumen o ruido sonido de la hacion cuanto mas alto desde mas dstancia los otros personajes lo haoiran y se incluira en el contesto de los que lo oigan
+LLME3:            Sugerencias para mejorar la precision de las respuesta de los personajes las guardaremos en un log
+
+
+cada función de hablar con la ia y obtener datos y escribirlos serán servidores multihilo
+
+los personajes serán clases abstractas con las funciones para contactar con las otras funciones
+
+en el main se escanearan los json que tiene los datos creando a si los personajes de los que halla json
+
+
+Los json de los personajes tendrá que guardar barias cosas
+
+-variables que se pasan:
+época actual año día mes
+hora actual
+calcular con los json de los personajes: Horas_Despierto = Hora_Actual - Ultima_Vez_Durmio
+"estado_fisico": "Llevas 16 horas despierto, tus ojos pesan."
+
+- json datos personaje:
+Nombre con apellidos
+fecha de nacimiento año
+fecha de nacimiento dia
+fecha de nacimiento mes
+genero
+edad
+personalidad
+padres
+salud
+sueño
+ultima vez que durmió
+ultima vez que se ducho
+ultima vez que cago
+ultima vez que meo
+ubicación exacta
+
+// emoción no hace falta porque la ia tendrá lo ultimo que digo e hizo
+
+- json ultimas conversaciones:
+historial de ultimas acciones y habladurías
+
+- json biografía:
+biografía(la biografía mas o menos resumida)
+
+- json_relacion_eli_lance
+si en las haciones puede interactuar con un personaje mirar cual y pasarle la relación con el personaje que serán sus conversaciones
+
+
+
+
+- edificios(aciones diferentes segun el oficio)
+Ayuntamiento
+Biblioteca municipal
+ambulatorio
+Farmacia
+cementerio con iglesia
+oficina de correos
+comisaria
+colegio
+Parque infantil
+instituto
+agricultor
+hotel (5 habitaciones)
+bar
+plaza
+paseo por las afueras
+Supermercado
+Restaurante
+Peluquería
+Oficina bancaria
+
+- personajes necesarios (por puesto)
+Bagabundo
+Oficinista(del alcalde)
+Alcalde
+biblotecaria
+medico
+cirujano
+farmacéutico
+cura
+enterrador
+mensajero
+oficinista mensajero
+serif
+policía
+fontanero
+electricista
+Cerrajero
+profesor/a infantil
+profesor/a secundaria
+agricultor (tendra haciones solo sullas)
+encargado del hotel
+coinero hotel
+cocinero bar
+camarero bar
+cajero
+reponedor
+cocinero restaurante y dueño
+camarero restaurante
+peuquero/a y dueño
+banquero
+
+-familias iniciales:
+Padres                                                       hijos
+Alcalde (1961) & Bibliotecaria (1972)                 = Oficinista del Alcalde (1994) / Policía (1996)
+Banquero (1971) & Peluquero/a y Dueño (1974)          = Cajero (1995) / Reponedor (1997)
+Agricultor (1968) & Profesora Secundaria (1973)       = Sheriff (1993) / Cerrajero (1995)
+Médico (1975) & Cirujano (1977)                       = Farmacéutico (1998) / Enfermero/a* (o apoyo médico)
+Enterrador (1972) & Profesora Infantil (1975)         = Fontanero (1996) / Electricista (1998)
+Encargado del Hotel (1976) & Cocinero Hotel (1978)    = Camarero Bar (2000) / Cocinero Bar (2002)
+Cocinero Rest. y Dueño (1978) & Camarero Rest. (1980) = Mensajero (2001) / Oficinista Mensajero (2003)
+El Cura (1980) Huérfano
+El Vagabundo (1965) Padres muertos asesinados los únicos del cementerio porque es nuevo ;)
+
+-Hitoria pueblo:
+Valle Silencio:
+
+Fundación: El Pacto de 1885
+El pueblo se fundó oficialmente en 1885. En aquel entonces, dos familias de colonos, los Ancestros del Alcalde y los Ancestros del Agricultor, llegaron a este valle huyendo de las guerras civiles.
+
+No había nada, solo tierra y un río. Para evitar matarse entre ellos, firmaron el "Tratado de la Partición":
+
+Una familia se quedaría con la Tierra (los antepasados del Agricultor).
+
+La otra se quedaría con el Pueblo (los antepasados del Alcalde).
+
+Desde ese día, el pueblo creció con una regla no escrita: Nadie viene de fuera, nadie se va para siempre.
+
+
+
+
+mejoras:
+
+Ancla de Realismo: En el archivo de Python, siempre debe haber una instrucción fija: "Eres un habitante de un pueblo realista de 2026. No existe la magia, no eres un animal. Tus acciones deben ser lógicas para un ser humano."
+
+La Biografía como "Ancla": Como Java guarda la biografía, si la IA intenta inventarse que es un astronauta, en el siguiente turno leerá su biografía de "Fontanero" y el modelo mismo corregirá el rumbo (autocorrección por contexto).

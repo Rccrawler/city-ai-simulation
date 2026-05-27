@@ -22,6 +22,12 @@ The simulation separates logic into two layers:
 
 The Java client sends the current context (time of day, character bio, recent events, physical state). The Python server appends system instructions to anchor the AI in reality and returns precise, parseable actions, including dialogue, physical actions, time spent, and voice volume (`RESVOL`).
 
+## 📚 Documentation
+
+Detailed documentation can be found in the `docs/` folder:
+- [Architecture & Lore](docs/ARCHITECTURE.md)
+- [Future Improvements](docs/mejoras.txt)
+
 ## 🚀 Getting Started
 
 *(Instructions for setting up the Python inference server and compiling the Java client will be added here as the project evolves.)*
@@ -35,9 +41,12 @@ The Java client sends the current context (time of day, character bio, recent ev
 
 We are actively looking for collaborators! Whether you are a Java developer, a Python/AI enthusiast, or a game designer, your help is welcome.
 
-1. Check our **Issues** tab for tasks labeled `good first issue`.
-2. Fork the repository and create your feature branch.
-3. Submit a Pull Request!
+1. **Join our Discord:** Come chat with us about the project, prompt engineering, and architecture on [our Discord server](https://discord.gg/PQsactCfr).
+2. Check our **Issues** tab for tasks labeled `good first issue`.
+3. Fork the repository and create your feature branch.
+4. Submit a Pull Request!
+
+For more details on how to contribute, please read our [Contributing Guidelines](docs/CONTRIBUTING.md).
 
 ## 📜 License
 
